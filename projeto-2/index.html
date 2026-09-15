@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC da Construção - Especial 9.9 | Até 60% OFF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased selection:bg-red-600 selection:text-white">
+
+    <!-- BARRA DE AVISO SUPERIOR -->
+    <div class="bg-red-600 text-white text-xs font-bold py-2 px-4 text-center tracking-wider uppercase">
+        ⚡ Campanha Exclusiva 9.9 • Ofertas válidas por tempo limitado!
+    </div>
+
+    <!-- HEADER / HERO SECTION (Baseado na imagem 1) -->
+    <header class="relative overflow-hidden bg-gradient-to-b from-red-950 via-slate-900 to-slate-900 border-b border-red-900/30">
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#ef4444_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 text-center lg:text-left">
+                <span class="bg-yellow-400 text-slate-950 font-black text-xs md:text-sm uppercase px-4 py-1.5 rounded-full tracking-widest inline-block mb-6 shadow-lg shadow-yellow-400/20">
+                    Dia do Cliente • Especial 9.9
+                </span>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight mb-6 leading-none">
+                    Até <span class="text-red-500 drop-shadow-md">60% OFF</span> em Acabamentos
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 max-w-xl mx-auto lg:mx-0 mb-8 font-medium">
+                    Transforme seu projeto com o design e sofisticação das marcas líderes de mercado com condições inacreditáveis.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                    <a href="#vitrine" class="bg-red-600 hover:bg-red-500 text-white font-extrabold px-8 py-4 rounded-xl shadow-xl shadow-red-600/30 transition-all transform hover:-translate-y-1 text-center">
+                        Explorar Ofertas &rarr;
+                    </a>
+                    <a href="#marcas" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-8 py-4 rounded-xl border border-slate-700 transition-all text-center">
+                        Conhecer Marcas
+                    </a>
+                </div>
+            </div>
+
+            <!-- Imagem 1 em destaque no Hero -->
+            <div class="lg:col-span-5 relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-yellow-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+                <div class="relative bg-slate-800 rounded-2xl p-3 border border-slate-700 shadow-2xl">
+                    <img src="assets/abc-da-construcao-emailmkt.jpg" alt="Especial 9.9 ABC da Construção" class="rounded-xl w-full h-auto object-cover animate-float">
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- SEÇÃO DE MARCAS / PARCEIROS -->
+    <section id="marcas" class="py-12 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-xs uppercase tracking-widest font-bold text-slate-500 mb-6">Trabalhamos com os melhores fabricantes mundiais</p>
+            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-70">
+                <span class="text-2xl font-black tracking-wider text-slate-300">ROCA</span>
+                <span class="text-2xl font-black tracking-wider text-slate-300">ZAGONEL</span>
+                <span class="text-2xl font-black tracking-wider text-slate-300">ABC DA CONSTRUÇÃO</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- VITRINE DE PRODUTOS (CARROSSEL MOBILE & GRID RESPONSIVO) -->
+    <section id="vitrine" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div>
+                <span class="text-red-500 font-bold uppercase tracking-widest text-xs">Seleção Exclusiva</span>
+                <h2 class="text-3xl md:text-4xl font-black text-white mt-1">Destaques da Campanha</h2>
+            </div>
+            <p class="text-slate-400 text-sm mt-2 md:mt-0">Arraste para o lado ou navegue pelos produtos abaixo</p>
+        </div>
+
+        <!-- Carrossel / Grid interativo -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            
+            <!-- Item 2 (abc-da-construcao-emailmkt-2.jpg) -->
+            <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl flex flex-col justify-between group">
+                <div class="relative overflow-hidden">
+                    <span class="absolute top-4 right-4 z-20 bg-red-600 text-white font-black text-sm px-3.5 py-1.5 rounded-full shadow-lg">
+                        60% OFF
+                    </span>
+                    <img src="assets/abc-da-construcao-emailmkt-2.jpg" alt="Cuba Apoio Infinity" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <span class="inline-block bg-red-500/10 text-red-400 font-bold text-xs uppercase px-3 py-1 rounded-md mb-3">Válvula Oculta</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">Cuba Apoio Infinity 110x42cm</h3>
+                    <p class="text-sm text-slate-400 mb-6 font-mono">Roca • SKU 69965</p>
+                    <a href="https://www.abcdaconstrucao.com.br" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-colors">
+                        Ver na Loja Oficial
+                    </a>
+                </div>
+            </div>
+
+            <!-- Item 3 (abc-da-construcao-emailmkt-3.jpg) -->
+            <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl flex flex-col justify-between group">
+                <div class="relative overflow-hidden">
+                    <span class="absolute top-4 right-4 z-20 bg-red-600 text-white font-black text-sm px-3.5 py-1.5 rounded-full shadow-lg">
+                        56% OFF
+                    </span>
+                    <img src="assets/abc-da-construcao-emailmkt-3.jpg" alt="Cuba Sobrepor View Horizon" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <span class="inline-block bg-red-500/10 text-red-400 font-bold text-xs uppercase px-3 py-1 rounded-md mb-3">Acabamento Stone</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">Cuba Sobrepor View Horizon 60x42cm</h3>
+                    <p class="text-sm text-slate-400 mb-6 font-mono">Roca • SKU 70104</p>
+                    <a href="https://www.abcdaconstrucao.com.br" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-colors">
+                        Ver na Loja Oficial
+                    </a>
+                </div>
+            </div>
+
+            <!-- Item 4 (abc-da-construcao-emailmkt-4.jpg) -->
+            <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl flex flex-col justify-between group">
+                <div class="relative overflow-hidden">
+                    <span class="absolute top-4 right-4 z-20 bg-red-600 text-white font-black text-sm px-3.5 py-1.5 rounded-full shadow-lg">
+                        54% OFF
+                    </span>
+                    <img src="assets/abc-da-construcao-emailmkt-4.jpg" alt="Cuba Sobrepor Skyline" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <span class="inline-block bg-red-500/10 text-red-400 font-bold text-xs uppercase px-3 py-1 rounded-md mb-3">Extra Large</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">Cuba Sobrepor Skyline Horizon 120x38cm</h3>
+                    <p class="text-sm text-slate-400 mb-6 font-mono">Roca • SKU 81586</p>
+                    <a href="https://www.abcdaconstrucao.com.br" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-colors">
+                        Ver na Loja Oficial
+                    </a>
+                </div>
+            </div>
+
+            <!-- Item 5 (abc-da-construcao-emailmkt-5.jpg) -->
+            <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl flex flex-col justify-between group">
+                <div class="relative overflow-hidden">
+                    <span class="absolute top-4 right-4 z-20 bg-red-600 text-white font-black text-sm px-3.5 py-1.5 rounded-full shadow-lg">
+                        31% OFF
+                    </span>
+                    <img src="assets/abc-da-construcao-emailmkt-5.jpg" alt="Ducha Eletrônica Ducali" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <span class="inline-block bg-red-500/10 text-red-400 font-bold text-xs uppercase px-3 py-1 rounded-md mb-3">Temperatura Gradual</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">Ducha Eletrônica Ducali Black 220V</h3>
+                    <p class="text-sm text-slate-400 mb-6 font-mono">Zagonel • SKU 86531</p>
+                    <a href="https://www.abcdaconstrucao.com.br" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-colors">
+                        Ver na Loja Oficial
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE DUVIDAS / FAQ EM ACRORDIÃO (Interativo com JS) -->
+    <section class="py-20 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-red-500 font-bold uppercase tracking-widest text-xs">Esclarecimentos</span>
+                <h2 class="text-3xl font-black text-white mt-1">Dúvidas Frequentes sobre a Campanha</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full p-6 text-left font-bold flex justify-between items-center text-white focus:outline-none">
+                        <span>Como aplicar os descontos da campanha 9.9?</span>
+                        <span id="icon-1" class="transform transition-transform duration-300 font-mono text-xl">+</span>
+                    </button>
+                    <div id="content-1" class="hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                        Os descontos já estão aplicados diretamente nos produtos selecionados para a vitrine oficial da promoção. Basta clicar em "Ver na Loja Oficial" para garantir sua compra com o preço promocional.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full p-6 text-left font-bold flex justify-between items-center text-white focus:outline-none">
+                        <span>Qual o prazo de validade das ofertas do Dia do Cliente?</span>
+                        <span id="icon-2" class="transform transition-transform duration-300 font-mono text-xl">+</span>
+                    </button>
+                    <div id="content-2" class="hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                        As ofertas seguem ativas enquanto durarem os estoques dos itens participantes da campanha especial 9.9. Recomendamos fechar o pedido o quanto antes.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full p-6 text-left font-bold flex justify-between items-center text-white focus:outline-none">
+                        <span>Como entrar em contato com o suporte em caso de dúvidas?</span>
+                        <span id="icon-3" class="transform transition-transform duration-300 font-mono text-xl">+</span>
+                    </button>
+                    <div id="content-3" class="hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                        Você pode falar diretamente com nosso time comercial através do WhatsApp oficial (31) 9 9105-5920 ou pelo telefone 0800 200 0216, de segunda a sexta, das 08:00 às 18:00.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUPORTE E CONTATO (Baseado na imagem 6) -->
+    <section class="py-16 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold text-white mb-3">Dúvidas? Fale com nosso time</h3>
+            <p class="text-slate-400 mb-8 text-sm">Atendimento especializado para arquitetos, engenheiros e clientes finais.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 text-left">
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
+                    <p class="text-xs text-slate-400 font-bold uppercase mb-1">Central de Voz</p>
+                    <a href="tel:08002000216" class="text-red-400 font-extrabold hover:underline">0800 200 0216</a>
+                </div>
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
+                    <p class="text-xs text-slate-400 font-bold uppercase mb-1">WhatsApp Oficial</p>
+                    <a href="https://wa.me/5531991055920" target="_blank" class="text-red-400 font-extrabold hover:underline">(31) 9 9105-5920</a>
+                </div>
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
+                    <p class="text-xs text-slate-400 font-bold uppercase mb-1">E-mail de Suporte</p>
+                    <a href="mailto:abcsuacasa.atendimento@abcdaconstrucao.com.br" class="text-red-400 font-extrabold text-xs hover:underline">abcsuacasa.atendimento@...</a>
+                </div>
+            </div>
+            <p class="text-xs text-slate-500 font-mono">Horário: Segunda a Sexta das 08:00 às 18:00 | Domingos e Feriados - sem expediente.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-500 py-8 text-xs text-center border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-2">Grupo Mysa | Brazil | Belo Horizonte, SP</p>
+            <p class="text-slate-600">Não responda a este e-mail automático. Para mais informações e suporte, acesse <a href="https://www.abcdaconstrucao.com.br" target="_blank" class="text-red-500 hover:underline font-bold">ABC DA CONSTRUÇÃO</a>.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica do Acordeão (FAQ)
+        function toggleFaq(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.textContent = '-';
+            } else {
+                content.classList.add('hidden');
+                icon.textContent = '+';
+            }
+        }
+    </script>
+</body>
+</html>
