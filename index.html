@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flyers Digitais — ABC da Construção</title>
+    <meta name="description" content="Encartes promocionais da ABC da Construção transformados em páginas digitais.">
+    <meta name="theme-color" content="#dc2626">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Paleta: parede de cimento, papel do encarte, tinta, e o vermelho de campanha da ABC */
+        :root {
+            --parede: #ececea;
+            --papel: #ffffff;
+            --borda: #d4d2cc;
+            --tinta: #262626;
+            --cinza: #6b6b66;
+            --vermelho: #dc2626;
+            --vermelho-escuro: #b91c1c;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: var(--parede);
+            color: var(--tinta);
+            font-family: 'Archivo', Arial, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--vermelho);
+            outline-offset: 3px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Cabeçalho: pequeno e funcional — o destaque da página é o encarte, não o título */
+        .topo {
+            max-width: 72rem;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 0;
+        }
+
+        .topo h1 {
+            margin: 0;
+            font-weight: 900;
+            font-stretch: 125%;
+            font-size: clamp(1.75rem, 1.2rem + 2.5vw, 3rem);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .topo p {
+            margin: .5rem 0 0;
+            color: var(--cinza);
+            max-width: 34em;
+        }
+
+        /* Lista de campanhas: uma pilha vertical de encartes, do mais recente ao mais antigo */
+        .lista {
+            list-style: none;
+            max-width: 72rem;
+            margin: 3rem auto 0;
+            padding: 0 0 4rem;
+        }
+
+        .campanha {
+            display: grid;
+            gap: 1.25rem;
+            margin-bottom: 4rem;
+        }
+
+        /* O encarte é uma folha de papel: sem raio, sem sombra difusa, só a borda da folha */
+        .encarte {
+            display: block;
+            background: var(--papel);
+            border: 1px solid var(--borda);
+        }
+
+        .encarte img {
+            margin: 0 auto;
+        }
+
+        .texto {
+            padding: 0 1.25rem;
+        }
+
+        .texto h2 {
+            margin: 0 0 .25rem;
+            font-weight: 900;
+            font-stretch: 125%;
+            font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+            line-height: 1.05;
+            letter-spacing: -0.015em;
+        }
+
+        .complemento {
+            margin: 0 0 .75rem;
+            font-weight: 700;
+        }
+
+        .periodo {
+            margin: 0 0 .75rem;
+            color: var(--cinza);
+        }
+
+        .descricao {
+            margin: 0 0 1.5rem;
+            max-width: 32em;
+        }
+
+        .acoes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem 1.25rem;
+            align-items: center;
+        }
+
+        .abrir {
+            display: inline-block;
+            background: var(--vermelho);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            padding: .8rem 1.25rem;
+        }
+
+        .abrir:hover {
+            background: var(--vermelho-escuro);
+        }
+
+        .pdf {
+            color: var(--cinza);
+            text-decoration: underline;
+            text-underline-offset: .2em;
+        }
+
+        .pdf:hover {
+            color: var(--tinta);
+        }
+
+        .rodape {
+            max-width: 72rem;
+            margin: 0 auto;
+            padding: 0 1.25rem 2rem;
+            color: var(--cinza);
+            font-size: .9375rem;
+        }
+
+        /* Desktop: encarte à esquerda (maior), texto à direita acompanhando a rolagem */
+        @media (min-width: 48rem) {
+
+            .topo,
+            .lista,
+            .rodape {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .campanha {
+                grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+                gap: 2.5rem;
+                align-items: start;
+            }
+
+            .texto {
+                padding: 0;
+                position: sticky;
+                top: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="topo">
+        <h1>Flyers Digitais</h1>
+        <p>Encartes da ABC da Construção transformados em páginas digitais.</p>
+    </header>
+
+    <main>
+        <ol class="lista" id="lista" aria-label="Campanhas"></ol>
+    </main>
+
+    <footer class="rodape">
+        Feito por <a href="https://www.linkedin.com/in/douglasabnovato/">Douglas A. B. Novato</a>
+    </footer>
+
+    <script>
+        // Para adicionar uma campanha nova: acrescente um objeto aqui e crie a pasta correspondente.
+        // "ordem" maior aparece primeiro (mais recente no topo).
+        const campanhas = [
+            {
+                pasta: 'projeto-2',
+                nome: 'Especial 9.9',
+                complemento: 'Até 60% off em acabamentos',
+                periodo: 'Dia do Cliente, 9 de setembro',
+                descricao: 'Cubas Roca e ducha eletrônica Zagonel com desconto na campanha do Dia do Cliente.',
+                ordem: 2
+            },
+            {
+                pasta: 'projeto-1',
+                nome: 'Aniversário 69 anos',
+                complemento: 'Ofertas e produtos exclusivos',
+                periodo: '',
+                descricao: 'Campanha de aniversário da ABC da Construção.',
+                ordem: 1
+            }
+        ];
+
+        function renderCampanha(c, indice) {
+            const capa = `./${c.pasta}/assets/abc-da-construcao-emailmkt.jpg`;
+            const pagina = `./${c.pasta}/index.html`;
+            const pdf = `./${c.pasta}/assets/pdf-emailmkt.pdf`;
+            const carregamento = indice === 0 ? 'eager' : 'lazy';
+            const periodo = c.periodo ? `<p class="periodo">${c.periodo}</p>` : '';
+
+            return `
+        <li class="campanha">
+          <a class="encarte" href="${pagina}" aria-label="Abrir a página da campanha ${c.nome}">
+            <img src="${capa}" alt="Encarte da campanha ${c.nome}" loading="${carregamento}">
+          </a>
+          <div class="texto">
+            <h2>${c.nome}</h2>
+            <p class="complemento">${c.complemento}</p>
+            ${periodo}
+            <p class="descricao">${c.descricao}</p>
+            <div class="acoes">
+              <a class="abrir" href="${pagina}">Abrir página</a>
+              <a class="pdf" href="${pdf}" target="_blank" rel="noopener noreferrer">Ver encarte original (PDF)</a>
+            </div>
+          </div>
+        </li>
+      `;
+        }
+
+        document.getElementById('lista').innerHTML = campanhas
+            .slice()
+            .sort((a, b) => b.ordem - a.ordem)
+            .map(renderCampanha)
+            .join('');
+    </script>
+
+</body>
+
+</html>
