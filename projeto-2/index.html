@@ -1,257 +1,559 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC da Construção - Especial 9.9 | Até 60% OFF</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <title>ABC da Construção — Especial 9.9 | Até 60% off em acabamentos</title>
+    <meta name="description"
+        content="Dia do Cliente na ABC da Construção: cubas Roca e ducha eletrônica Zagonel com até 60% de desconto. Página de demonstração didática.">
+    <meta name="theme-color" content="#dc2626">
+
+    <!-- Open Graph: controla o preview do link no WhatsApp. og:url e og:image precisam de URL absoluta quando publicado. -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Especial 9.9 — até 60% off em acabamentos">
+    <meta property="og:description"
+        content="Cubas Roca e ducha eletrônica Zagonel em oferta no Dia do Cliente da ABC da Construção.">
+    <meta property="og:image" content="assets/abc-da-construcao-emailmkt.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap"
+        rel="stylesheet">
+
     <style>
-        body { font-family: 'Montserrat', sans-serif; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+        /* ==========================================================
+       TOKENS — um sistema só para os dois projetos e o catálogo.
+       Vermelho é o único acento; amarelo aparece só na tag de desconto.
+       ========================================================== */
+        :root {
+            --papel: #ffffff;
+            --parede: #ececea;
+            --borda: #d4d2cc;
+            --tinta: #262626;
+            --cinza: #6b6b66;
+            --vermelho: #dc2626;
+            --vermelho-escuro: #b91c1c;
+            --amarelo: #facc15;
+            --largura: 72rem;
         }
-        .animate-float { animation: float 4s ease-in-out infinite; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        body {
+            margin: 0;
+            background: var(--parede);
+            /* a "parede" onde as folhas do encarte se apoiam */
+            color: var(--tinta);
+            font-family: 'Archivo', Arial, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        summary:focus-visible {
+            outline: 2px solid var(--vermelho);
+            outline-offset: 3px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: var(--largura);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        /* Títulos: mesma família, peso 900 e largura expandida — voz de cartaz de oferta */
+        h1,
+        h2 {
+            margin: 0;
+            font-weight: 900;
+            font-stretch: 125%;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 1.2rem + 4vw, 4rem);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        /* Cada seção é uma "folha": branca, com borda de 1px, sem sombra e sem raio */
+        .folha {
+            background: var(--papel);
+            border-top: 1px solid var(--borda);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .aviso {
+            margin: 0;
+            background: var(--vermelho);
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+            padding: .6rem 1.25rem;
+        }
+
+        .cabecalho {
+            background: var(--papel);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .cabecalho .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+        }
+
+        .marca {
+            background: var(--vermelho);
+            color: #fff;
+            font-weight: 900;
+            font-size: 1.25rem;
+            letter-spacing: .04em;
+            padding: .25rem .6rem;
+            text-decoration: none;
+        }
+
+        .cabecalho .loja {
+            font-weight: 700;
+        }
+
+        /* Hero: título inteiro num peso só, uma frase, um botão. O encarte real vem logo abaixo. */
+        .hero {
+            padding: 3rem 0 0;
+        }
+
+        .hero .selo {
+            margin: 0 0 .75rem;
+            font-weight: 700;
+        }
+
+        .hero .lead {
+            margin: 1rem 0 1.5rem;
+            max-width: 34em;
+            font-size: 1.125rem;
+        }
+
+        .encarte {
+            margin-top: 2.5rem;
+            background: var(--papel);
+            border: 1px solid var(--borda);
+        }
+
+        .encarte img {
+            margin: 0 auto;
+        }
+
+        .botao {
+            display: inline-block;
+            background: var(--vermelho);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            padding: .85rem 1.4rem;
+        }
+
+        .botao:hover {
+            background: var(--vermelho-escuro);
+        }
+
+        .botao-escuro {
+            background: var(--tinta);
+        }
+
+        .botao-escuro:hover {
+            background: #000;
+        }
+
+        .marcas {
+            padding: 1.25rem 0;
+        }
+
+        .marcas .container {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .marcas p {
+            margin: 0;
+            color: var(--cinza);
+        }
+
+        .marcas ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+            font-weight: 900;
+            font-size: 1.25rem;
+        }
+
+        /* Vitrine em faixas: as imagens de e-mail marketing já são faixas — o layout respeita a proporção original */
+        .vitrine {
+            padding: 3rem 0;
+        }
+
+        .vitrine header p {
+            margin: .25rem 0 0;
+            color: var(--cinza);
+        }
+
+        .faixas {
+            list-style: none;
+            margin: 2rem 0 0;
+            padding: 0;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .faixa {
+            background: var(--papel);
+            border: 1px solid var(--borda);
+            display: grid;
+        }
+
+        .faixa img {
+            width: 100%;
+        }
+
+        .faixa .preco {
+            padding: 1.25rem;
+            display: grid;
+            align-content: start;
+            gap: .35rem;
+        }
+
+        .desconto {
+            display: inline-block;
+            justify-self: start;
+            background: var(--amarelo);
+            color: var(--tinta);
+            font-weight: 900;
+            font-size: 1.125rem;
+            padding: .2rem .55rem;
+            margin-bottom: .4rem;
+        }
+
+        .faixa .caracteristica {
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .faixa .detalhe {
+            margin: 0 0 .75rem;
+            color: var(--cinza);
+        }
+
+        /* Dúvidas: <details> nativo — acessível por teclado e leitor de tela, sem JavaScript obrigatório */
+        .duvidas {
+            padding: 3rem 0;
+        }
+
+        .duvidas details {
+            border-top: 1px solid var(--borda);
+        }
+
+        .duvidas details:last-of-type {
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .duvidas summary {
+            cursor: pointer;
+            font-weight: 700;
+            padding: 1rem 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .duvidas summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .duvidas summary::after {
+            content: "+";
+            font-weight: 400;
+            color: var(--cinza);
+        }
+
+        .duvidas details[open] summary::after {
+            content: "–";
+        }
+
+        .duvidas details p {
+            margin: 0 0 1.25rem;
+            color: var(--cinza);
+            max-width: 60ch;
+        }
+
+        .contato {
+            padding: 3rem 0;
+        }
+
+        .contato .lead {
+            margin: .5rem 0 1.5rem;
+            color: var(--cinza);
+            max-width: 40em;
+        }
+
+        .canais {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: .75rem;
+        }
+
+        .canais li {
+            font-weight: 700;
+        }
+
+        .canais a {
+            text-decoration: underline;
+            text-underline-offset: .2em;
+        }
+
+        .canais small {
+            display: block;
+            font-weight: 400;
+            color: var(--cinza);
+        }
+
+        .rodape {
+            padding: 2rem 0 2.5rem;
+            color: var(--cinza);
+            font-size: .9375rem;
+        }
+
+        .rodape p {
+            margin: 0 0 .5rem;
+        }
+
+        .rodape .mockup {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--borda);
+        }
+
+        @media (min-width: 48rem) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            .hero {
+                padding-top: 4rem;
+            }
+
+            .faixas {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .canais {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+        }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 antialiased selection:bg-red-600 selection:text-white">
 
-    <!-- BARRA DE AVISO SUPERIOR -->
-    <div class="bg-red-600 text-white text-xs font-bold py-2 px-4 text-center tracking-wider uppercase">
-        ⚡ Campanha Exclusiva 9.9 • Ofertas válidas por tempo limitado!
-    </div>
+<body>
 
-    <!-- HEADER / HERO SECTION (Baseado na imagem 1) -->
-    <header class="relative overflow-hidden bg-gradient-to-b from-red-950 via-slate-900 to-slate-900 border-b border-red-900/30">
-        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#ef4444_1px,transparent_1px)] [background-size:24px_24px]"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-7 text-center lg:text-left">
-                <span class="bg-yellow-400 text-slate-950 font-black text-xs md:text-sm uppercase px-4 py-1.5 rounded-full tracking-widest inline-block mb-6 shadow-lg shadow-yellow-400/20">
-                    Dia do Cliente • Especial 9.9
-                </span>
-                <h1 class="text-4xl sm:text-6xl font-black tracking-tight mb-6 leading-none">
-                    Até <span class="text-red-500 drop-shadow-md">60% OFF</span> em Acabamentos
-                </h1>
-                <p class="text-lg md:text-xl text-slate-300 max-w-xl mx-auto lg:mx-0 mb-8 font-medium">
-                    Transforme seu projeto com o design e sofisticação das marcas líderes de mercado com condições inacreditáveis.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                    <a href="#vitrine" class="bg-red-600 hover:bg-red-500 text-white font-extrabold px-8 py-4 rounded-xl shadow-xl shadow-red-600/30 transition-all transform hover:-translate-y-1 text-center">
-                        Explorar Ofertas &rarr;
-                    </a>
-                    <a href="#marcas" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-8 py-4 rounded-xl border border-slate-700 transition-all text-center">
-                        Conhecer Marcas
-                    </a>
-                </div>
-            </div>
+    <p class="aviso">Campanha exclusiva 9.9 — ofertas válidas por tempo limitado.</p>
 
-            <!-- Imagem 1 em destaque no Hero -->
-            <div class="lg:col-span-5 relative">
-                <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-yellow-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
-                <div class="relative bg-slate-800 rounded-2xl p-3 border border-slate-700 shadow-2xl">
-                    <img src="assets/abc-da-construcao-emailmkt.jpg" alt="Especial 9.9 ABC da Construção" class="rounded-xl w-full h-auto object-cover animate-float">
-                </div>
-            </div>
-
+    <header class="cabecalho">
+        <div class="container">
+            <a class="marca" href="https://www.abcdaconstrucao.com.br" target="_blank" rel="noopener noreferrer">abc</a>
+            <a class="loja" href="https://www.abcdaconstrucao.com.br" target="_blank" rel="noopener noreferrer">Ir para
+                a loja</a>
         </div>
     </header>
 
-    <!-- SEÇÃO DE MARCAS / PARCEIROS -->
-    <section id="marcas" class="py-12 bg-slate-950 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-xs uppercase tracking-widest font-bold text-slate-500 mb-6">Trabalhamos com os melhores fabricantes mundiais</p>
-            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-70">
-                <span class="text-2xl font-black tracking-wider text-slate-300">ROCA</span>
-                <span class="text-2xl font-black tracking-wider text-slate-300">ZAGONEL</span>
-                <span class="text-2xl font-black tracking-wider text-slate-300">ABC DA CONSTRUÇÃO</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- VITRINE DE PRODUTOS (CARROSSEL MOBILE & GRID RESPONSIVO) -->
-    <section id="vitrine" class="py-20 max-w-7xl mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-            <div>
-                <span class="text-red-500 font-bold uppercase tracking-widest text-xs">Seleção Exclusiva</span>
-                <h2 class="text-3xl md:text-4xl font-black text-white mt-1">Destaques da Campanha</h2>
-            </div>
-            <p class="text-slate-400 text-sm mt-2 md:mt-0">Arraste para o lado ou navegue pelos produtos abaixo</p>
-        </div>
-
-        <!-- Carrossel / Grid interativo -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            
-            <!-- Item 2 (abc-da-construcao-emailmkt-2.jpg) -->
-            <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl flex flex-col justify-between group">
-                <div class="relative overflow-hidden">
-                    <span class="absolute top-4 right-4 z-20 bg-red-600 text-white font-black text-sm px-3.5 py-1.5 rounded-full shadow-lg">
-                        60% OFF
-                    </span>
-                    <img src="assets/abc-da-construcao-emailmkt-2.jpg" alt="Cuba Apoio Infinity" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <span class="inline-block bg-red-500/10 text-red-400 font-bold text-xs uppercase px-3 py-1 rounded-md mb-3">Válvula Oculta</span>
-                    <h3 class="text-2xl font-bold text-white mb-2">Cuba Apoio Infinity 110x42cm</h3>
-                    <p class="text-sm text-slate-400 mb-6 font-mono">Roca • SKU 69965</p>
-                    <a href="https://www.abcdaconstrucao.com.br" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-colors">
-                        Ver na Loja Oficial
-                    </a>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <p class="selo">Dia do Cliente</p>
+                <h1>Até 60% off em acabamentos</h1>
+                <p class="lead">Cubas Roca e ducha eletrônica Zagonel com desconto, enquanto durarem os estoques.</p>
+                <a class="botao" href="#vitrine">Ver as ofertas</a>
+                <div class="encarte">
+                    <img src="assets/abc-da-construcao-emailmkt.jpg"
+                        alt="Encarte da campanha Especial 9.9 da ABC da Construção" loading="eager">
                 </div>
             </div>
+        </section>
 
-            <!-- Item 3 (abc-da-construcao-emailmkt-3.jpg) -->
-            <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl flex flex-col justify-between group">
-                <div class="relative overflow-hidden">
-                    <span class="absolute top-4 right-4 z-20 bg-red-600 text-white font-black text-sm px-3.5 py-1.5 rounded-full shadow-lg">
-                        56% OFF
-                    </span>
-                    <img src="assets/abc-da-construcao-emailmkt-3.jpg" alt="Cuba Sobrepor View Horizon" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <span class="inline-block bg-red-500/10 text-red-400 font-bold text-xs uppercase px-3 py-1 rounded-md mb-3">Acabamento Stone</span>
-                    <h3 class="text-2xl font-bold text-white mb-2">Cuba Sobrepor View Horizon 60x42cm</h3>
-                    <p class="text-sm text-slate-400 mb-6 font-mono">Roca • SKU 70104</p>
-                    <a href="https://www.abcdaconstrucao.com.br" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-colors">
-                        Ver na Loja Oficial
-                    </a>
+        <section class="marcas">
+            <div class="container">
+                <p>Marcas nesta campanha</p>
+                <ul>
+                    <li>Roca</li>
+                    <li>Zagonel</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="vitrine folha" id="vitrine">
+            <div class="container">
+                <header>
+                    <h2>Destaques da campanha</h2>
+                    <p>Descontos já aplicados. O botão leva ao produto na loja oficial.*</p>
+                </header>
+                <ul class="faixas">
+                    <li class="faixa">
+                        <img src="assets/abc-da-construcao-emailmkt-2.jpg" alt="Cuba de apoio Infinity 110x42 cm, Roca"
+                            loading="lazy">
+                        <div class="preco">
+                            <span class="desconto">60% off</span>
+                            <h3>Cuba Apoio Infinity 110x42 cm</h3>
+                            <p class="caracteristica">Válvula oculta</p>
+                            <p class="detalhe">Roca — SKU 69965</p>
+                            <a class="botao botao-escuro" href="https://www.abcdaconstrucao.com.br" data-sku="69965"
+                                target="_blank" rel="noopener noreferrer">Ver produto na loja</a>
+                        </div>
+                    </li>
+                    <li class="faixa">
+                        <img src="assets/abc-da-construcao-emailmkt-3.jpg"
+                            alt="Cuba de sobrepor View Horizon 60x42 cm, Roca" loading="lazy">
+                        <div class="preco">
+                            <span class="desconto">56% off</span>
+                            <h3>Cuba Sobrepor View Horizon 60x42 cm</h3>
+                            <p class="caracteristica">Acabamento Stone</p>
+                            <p class="detalhe">Roca — SKU 70104</p>
+                            <a class="botao botao-escuro" href="https://www.abcdaconstrucao.com.br" data-sku="70104"
+                                target="_blank" rel="noopener noreferrer">Ver produto na loja</a>
+                        </div>
+                    </li>
+                    <li class="faixa">
+                        <img src="assets/abc-da-construcao-emailmkt-4.jpg"
+                            alt="Cuba de sobrepor Skyline Horizon 120x38 cm, Roca" loading="lazy">
+                        <div class="preco">
+                            <span class="desconto">54% off</span>
+                            <h3>Cuba Sobrepor Skyline Horizon 120x38 cm</h3>
+                            <p class="caracteristica">Extra large</p>
+                            <p class="detalhe">Roca — SKU 81586</p>
+                            <a class="botao botao-escuro" href="https://www.abcdaconstrucao.com.br" data-sku="81586"
+                                target="_blank" rel="noopener noreferrer">Ver produto na loja</a>
+                        </div>
+                    </li>
+                    <li class="faixa">
+                        <img src="assets/abc-da-construcao-emailmkt-5.jpg"
+                            alt="Ducha eletrônica Ducali Black 220V, Zagonel" loading="lazy">
+                        <div class="preco">
+                            <span class="desconto">31% off</span>
+                            <h3>Ducha Eletrônica Ducali Black 220V</h3>
+                            <p class="caracteristica">Temperatura gradual</p>
+                            <p class="detalhe">Zagonel — SKU 86531</p>
+                            <a class="botao botao-escuro" href="https://www.abcdaconstrucao.com.br" data-sku="86531"
+                                target="_blank" rel="noopener noreferrer">Ver produto na loja</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="duvidas">
+            <div class="container">
+                <h2>Dúvidas sobre a campanha</h2>
+                <div class="acordeao" style="margin-top:1.5rem;">
+                    <details>
+                        <summary>Como aplicar os descontos da campanha 9.9?</summary>
+                        <p>Os descontos já estão aplicados nos produtos selecionados. Basta abrir o produto na loja
+                            oficial e concluir a compra com o preço promocional.</p>
+                    </details>
+                    <details>
+                        <summary>Até quando valem as ofertas do Dia do Cliente?</summary>
+                        <p>Enquanto durarem os estoques dos itens participantes. Se um produto interessar, vale fechar o
+                            pedido o quanto antes.</p>
+                    </details>
+                    <details>
+                        <summary>Como falar com o atendimento?</summary>
+                        <p>Pelo WhatsApp (31) 9 9105-5920 ou pelo telefone 0800 200 0216, de segunda a sexta, das 8h às
+                            18h.</p>
+                    </details>
                 </div>
             </div>
+        </section>
 
-            <!-- Item 4 (abc-da-construcao-emailmkt-4.jpg) -->
-            <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl flex flex-col justify-between group">
-                <div class="relative overflow-hidden">
-                    <span class="absolute top-4 right-4 z-20 bg-red-600 text-white font-black text-sm px-3.5 py-1.5 rounded-full shadow-lg">
-                        54% OFF
-                    </span>
-                    <img src="assets/abc-da-construcao-emailmkt-4.jpg" alt="Cuba Sobrepor Skyline" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <span class="inline-block bg-red-500/10 text-red-400 font-bold text-xs uppercase px-3 py-1 rounded-md mb-3">Extra Large</span>
-                    <h3 class="text-2xl font-bold text-white mb-2">Cuba Sobrepor Skyline Horizon 120x38cm</h3>
-                    <p class="text-sm text-slate-400 mb-6 font-mono">Roca • SKU 81586</p>
-                    <a href="https://www.abcdaconstrucao.com.br" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-colors">
-                        Ver na Loja Oficial
-                    </a>
-                </div>
+        <section class="contato folha">
+            <div class="container">
+                <h2>Fale com o time</h2>
+                <p class="lead">Atendimento para arquitetos, engenheiros e clientes finais, de segunda a sexta, das 8h
+                    às 18h.</p>
+                <ul class="canais">
+                    <li><a href="tel:08002000216">0800 200 0216</a><small>Central de atendimento</small></li>
+                    <li><a href="https://wa.me/5531991055920" target="_blank" rel="noopener noreferrer">(31) 9
+                            9105-5920</a><small>WhatsApp</small></li>
+                    <li><a
+                            href="mailto:abcsuacasa.atendimento@abcdaconstrucao.com.br">abcsuacasa.atendimento@abcdaconstrucao.com.br</a><small>E-mail</small>
+                    </li>
+                </ul>
             </div>
+        </section>
+    </main>
 
-            <!-- Item 5 (abc-da-construcao-emailmkt-5.jpg) -->
-            <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl flex flex-col justify-between group">
-                <div class="relative overflow-hidden">
-                    <span class="absolute top-4 right-4 z-20 bg-red-600 text-white font-black text-sm px-3.5 py-1.5 rounded-full shadow-lg">
-                        31% OFF
-                    </span>
-                    <img src="assets/abc-da-construcao-emailmkt-5.jpg" alt="Ducha Eletrônica Ducali" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="p-8">
-                    <span class="inline-block bg-red-500/10 text-red-400 font-bold text-xs uppercase px-3 py-1 rounded-md mb-3">Temperatura Gradual</span>
-                    <h3 class="text-2xl font-bold text-white mb-2">Ducha Eletrônica Ducali Black 220V</h3>
-                    <p class="text-sm text-slate-400 mb-6 font-mono">Zagonel • SKU 86531</p>
-                    <a href="https://www.abcdaconstrucao.com.br" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl transition-colors">
-                        Ver na Loja Oficial
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SEÇÃO DE DUVIDAS / FAQ EM ACRORDIÃO (Interativo com JS) -->
-    <section class="py-20 bg-slate-950 border-t border-slate-800">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <span class="text-red-500 font-bold uppercase tracking-widest text-xs">Esclarecimentos</span>
-                <h2 class="text-3xl font-black text-white mt-1">Dúvidas Frequentes sobre a Campanha</h2>
-            </div>
-
-            <div class="space-y-4">
-                <!-- FAQ 1 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-                    <button onclick="toggleFaq(1)" class="w-full p-6 text-left font-bold flex justify-between items-center text-white focus:outline-none">
-                        <span>Como aplicar os descontos da campanha 9.9?</span>
-                        <span id="icon-1" class="transform transition-transform duration-300 font-mono text-xl">+</span>
-                    </button>
-                    <div id="content-1" class="hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
-                        Os descontos já estão aplicados diretamente nos produtos selecionados para a vitrine oficial da promoção. Basta clicar em "Ver na Loja Oficial" para garantir sua compra com o preço promocional.
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-                    <button onclick="toggleFaq(2)" class="w-full p-6 text-left font-bold flex justify-between items-center text-white focus:outline-none">
-                        <span>Qual o prazo de validade das ofertas do Dia do Cliente?</span>
-                        <span id="icon-2" class="transform transition-transform duration-300 font-mono text-xl">+</span>
-                    </button>
-                    <div id="content-2" class="hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
-                        As ofertas seguem ativas enquanto durarem os estoques dos itens participantes da campanha especial 9.9. Recomendamos fechar o pedido o quanto antes.
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-                    <button onclick="toggleFaq(3)" class="w-full p-6 text-left font-bold flex justify-between items-center text-white focus:outline-none">
-                        <span>Como entrar em contato com o suporte em caso de dúvidas?</span>
-                        <span id="icon-3" class="transform transition-transform duration-300 font-mono text-xl">+</span>
-                    </button>
-                    <div id="content-3" class="hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
-                        Você pode falar diretamente com nosso time comercial através do WhatsApp oficial (31) 9 9105-5920 ou pelo telefone 0800 200 0216, de segunda a sexta, das 08:00 às 18:00.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SUPORTE E CONTATO (Baseado na imagem 6) -->
-    <section class="py-16 bg-slate-900 border-t border-slate-800">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h3 class="text-2xl font-bold text-white mb-3">Dúvidas? Fale com nosso time</h3>
-            <p class="text-slate-400 mb-8 text-sm">Atendimento especializado para arquitetos, engenheiros e clientes finais.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 text-left">
-                <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
-                    <p class="text-xs text-slate-400 font-bold uppercase mb-1">Central de Voz</p>
-                    <a href="tel:08002000216" class="text-red-400 font-extrabold hover:underline">0800 200 0216</a>
-                </div>
-                <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
-                    <p class="text-xs text-slate-400 font-bold uppercase mb-1">WhatsApp Oficial</p>
-                    <a href="https://wa.me/5531991055920" target="_blank" class="text-red-400 font-extrabold hover:underline">(31) 9 9105-5920</a>
-                </div>
-                <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
-                    <p class="text-xs text-slate-400 font-bold uppercase mb-1">E-mail de Suporte</p>
-                    <a href="mailto:abcsuacasa.atendimento@abcdaconstrucao.com.br" class="text-red-400 font-extrabold text-xs hover:underline">abcsuacasa.atendimento@...</a>
-                </div>
-            </div>
-            <p class="text-xs text-slate-500 font-mono">Horário: Segunda a Sexta das 08:00 às 18:00 | Domingos e Feriados - sem expediente.</p>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 text-slate-500 py-8 text-xs text-center border-t border-slate-900">
-        <div class="max-w-7xl mx-auto px-4">
-            <p class="mb-2">Grupo Mysa | Brazil | Belo Horizonte, SP</p>
-            <p class="text-slate-600">Não responda a este e-mail automático. Para mais informações e suporte, acesse <a href="https://www.abcdaconstrucao.com.br" target="_blank" class="text-red-500 hover:underline font-bold">ABC DA CONSTRUÇÃO</a>.</p>
+    <footer class="rodape">
+        <div class="container">
+            <p>ABC Atacado Brasileiro da Construção S.A. — Belo Horizonte, MG · <a
+                    href="https://www.abcdaconstrucao.com.br" target="_blank"
+                    rel="noopener noreferrer">abcdaconstrucao.com.br</a></p>
+            <p class="mockup">* Página de demonstração para fins didáticos. Preços, links de produto e condições são
+                ilustrativos e não representam ofertas vigentes.</p>
         </div>
     </footer>
 
     <script>
-        // Lógica do Acordeão (FAQ)
-        function toggleFaq(id) {
-            const content = document.getElementById(`content-${id}`);
-            const icon = document.getElementById(`icon-${id}`);
-            
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.textContent = '-';
-            } else {
-                content.classList.add('hidden');
-                icon.textContent = '+';
-            }
-        }
+        // Comportamento de acordeão: ao abrir uma pergunta, fecha as outras.
+        // O <details> já funciona sem JS — isto é só um refinamento de UX.
+        const perguntas = document.querySelectorAll('.acordeao details');
+        perguntas.forEach((d) => {
+            d.addEventListener('toggle', () => {
+                if (d.open) perguntas.forEach((outra) => { if (outra !== d) outra.open = false; });
+            });
+        });
     </script>
+
 </body>
+
 </html>

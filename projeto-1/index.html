@@ -1,504 +1,1097 @@
-    <!DOCTYPE html>
-    <html lang="pt-BR" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ABC da Construção - Aniversário 69 Anos | Ofertas e Produtos Exclusivos</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-            rel="stylesheet">
-        <style>
-            body {
-                font-family: 'Inter', sans-serif;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC da Construção — Aniversário 69 anos | Ofertas e produtos exclusivos</title>
+    <meta name="description"
+        content="69 anos de ABC da Construção: ofertas em revestimentos, louças e metais das grandes marcas. Página de demonstração didática.">
+    <meta name="theme-color" content="#dc2626">
+
+    <!-- Open Graph: og:url e og:image precisam de URL absoluta quando publicado. -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Aniversário 69 anos — ofertas e produtos exclusivos">
+    <meta property="og:description"
+        content="Revestimentos, louças e metais das grandes marcas em oferta no aniversário da ABC da Construção.">
+    <meta property="og:image" content="assets/abc-da-construcao-emailmkt.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ==========================================================
+       TOKENS — mesmo sistema do Projeto 2 e do catálogo.
+       ========================================================== */
+        :root {
+            --papel: #ffffff;
+            --parede: #f3f3f1;
+            --borda: #d4d2cc;
+            --tinta: #262626;
+            --cinza: #6b6b66;
+            --vermelho: #dc2626;
+            --vermelho-escuro: #b91c1c;
+            --amarelo: #facc15;
+            --largura: 72rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        body {
+            margin: 0;
+            background: var(--papel);
+            color: var(--tinta);
+            font-family: 'Archivo', Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 2px solid var(--vermelho);
+            outline-offset: 3px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: var(--largura);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+            font-weight: 900;
+            font-stretch: 125%;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 1.2rem + 4vw, 4rem);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 1.125rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .botao {
+            display: inline-block;
+            background: var(--vermelho);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            padding: .85rem 1.4rem;
+            border: 0;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+        }
+
+        .botao:hover {
+            background: var(--vermelho-escuro);
+        }
+
+        .botao-escuro {
+            background: var(--tinta);
+        }
+
+        .botao-escuro:hover {
+            background: #000;
+        }
+
+        .botao-contorno {
+            background: transparent;
+            color: var(--tinta);
+            border: 1px solid var(--tinta);
+        }
+
+        .botao-contorno:hover {
+            background: var(--tinta);
+            color: #fff;
+        }
+
+        /* ---------- Aviso + Header e-commerce (réplica do padrão real da loja) ---------- */
+        .aviso {
+            margin: 0;
+            background: var(--vermelho);
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+            padding: .6rem 1.25rem;
+        }
+
+        .cabecalho {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--papel);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .cabecalho .linha {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+        }
+
+        .marca {
+            background: var(--vermelho);
+            color: #fff;
+            font-weight: 900;
+            font-size: 1.25rem;
+            letter-spacing: .04em;
+            padding: .25rem .6rem;
+            text-decoration: none;
+            flex: none;
+        }
+
+        .busca {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            border: 1px solid var(--borda);
+            padding: .5rem .75rem;
+            background: var(--parede);
+        }
+
+        .busca input {
+            flex: 1;
+            border: 0;
+            background: transparent;
+            font: inherit;
+            color: var(--tinta);
+            min-width: 0;
+        }
+
+        .busca input:focus {
+            outline: none;
+        }
+
+        .busca svg {
+            width: 1.1rem;
+            height: 1.1rem;
+            color: var(--cinza);
+            flex: none;
+        }
+
+        .conta {
+            display: none;
+            gap: 1rem;
+            align-items: center;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .conta .botao-contorno {
+            padding: .55rem .9rem;
+        }
+
+        /* Menu de categorias: rolagem horizontal no mobile, como o site real */
+        .menu {
+            border-top: 1px solid var(--borda);
+            background: var(--parede);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .menu::-webkit-scrollbar {
+            display: none;
+        }
+
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: .6rem 1.25rem;
+            display: flex;
+            gap: 1.5rem;
+            white-space: nowrap;
+            max-width: var(--largura);
+            margin: 0 auto;
+        }
+
+        .menu a {
+            text-decoration: none;
+            font-weight: 700;
+            font-size: .9375rem;
+        }
+
+        .menu a:hover {
+            color: var(--vermelho);
+        }
+
+        .menu .ativo {
+            color: var(--vermelho);
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            padding: 3rem 0;
+            background: var(--parede);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .hero .container {
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero .selo {
+            margin: 0 0 .75rem;
+            font-weight: 700;
+        }
+
+        .hero .lead {
+            margin: 1rem 0 1.25rem;
+            max-width: 34em;
+            font-size: 1.125rem;
+        }
+
+        .hero .condicoes {
+            margin: 1.5rem 0 0;
+            font-weight: 700;
+            color: var(--cinza);
+        }
+
+        .hero .banner {
+            background: var(--papel);
+            border: 1px solid var(--borda);
+        }
+
+        .hero .banner img {
+            margin: 0 auto;
+        }
+
+        /* ---------- Departamentos: lista de texto com filete, como um mega-menu ---------- */
+        .departamentos {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .departamentos h2 {
+            font-size: 1.25rem;
+            font-stretch: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .departamentos ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 2rem;
+        }
+
+        .departamentos a {
+            display: block;
+            padding: .75rem 0;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .departamentos a:hover {
+            color: var(--vermelho);
+            border-bottom-color: var(--vermelho);
+        }
+
+        /* ---------- Vitrine: cards no padrão e-commerce ---------- */
+        .vitrine {
+            padding: 3rem 0;
+        }
+
+        .vitrine header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .vitrine header p {
+            margin: .25rem 0 0;
+            color: var(--cinza);
+        }
+
+        .vitrine header a {
+            font-weight: 700;
+        }
+
+        .produtos {
+            list-style: none;
+            margin: 2rem 0 0;
+            padding: 0;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .produto {
+            background: var(--papel);
+            border: 1px solid var(--borda);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .produto .foto {
+            position: relative;
+            background: var(--parede);
+        }
+
+        .produto .foto img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        .tags {
+            position: absolute;
+            top: .75rem;
+            left: .75rem;
+            right: .75rem;
+            display: flex;
+            justify-content: space-between;
+            gap: .5rem;
+        }
+
+        .tag {
+            font-weight: 900;
+            font-size: .875rem;
+            padding: .15rem .5rem;
+        }
+
+        .tag-desconto {
+            background: var(--amarelo);
+            color: var(--tinta);
+        }
+
+        .tag-frete {
+            background: var(--tinta);
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .produto .info {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: .35rem;
+        }
+
+        .produto .fabricante {
+            margin: 0;
+            color: var(--cinza);
+            font-size: .9375rem;
+        }
+
+        .produto .valores {
+            margin: auto 0 0;
+            padding-top: .75rem;
+        }
+
+        .produto .de {
+            color: var(--cinza);
+            text-decoration: line-through;
+            margin: 0;
+            font-size: .9375rem;
+        }
+
+        .produto .por {
+            margin: 0;
+            color: var(--vermelho);
+            font-weight: 900;
+            font-size: 1.5rem;
+            font-stretch: 110%;
+        }
+
+        .produto .por small {
+            color: var(--cinza);
+            font-weight: 400;
+            font-size: .875rem;
+            font-stretch: 100%;
+        }
+
+        .produto .botao {
+            margin-top: .75rem;
+        }
+
+        .ilustrativa {
+            font-size: .8125rem;
+            color: var(--cinza);
+            margin: .25rem 0 0;
+        }
+
+        /* ---------- Produto em destaque ---------- */
+        .destaque {
+            padding: 3rem 0;
+            border-top: 1px solid var(--borda);
+        }
+
+        .destaque.alt {
+            background: var(--parede);
+        }
+
+        .destaque .container {
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .destaque .imagem {
+            background: var(--papel);
+            border: 1px solid var(--borda);
+        }
+
+        .destaque .imagem img {
+            margin: 0 auto;
+        }
+
+        .destaque .desconto {
+            display: inline-block;
+            background: var(--amarelo);
+            font-weight: 900;
+            font-size: 1.125rem;
+            padding: .2rem .55rem;
+            margin-bottom: .75rem;
+        }
+
+        .destaque p.descricao {
+            margin: 1rem 0;
+            max-width: 40em;
+        }
+
+        .destaque .ficha {
+            margin: 0 0 1.5rem;
+            color: var(--cinza);
+        }
+
+        .destaque .ficha b {
+            color: var(--tinta);
+        }
+
+        /* ---------- Lojas: 11 estados reais, grid de texto ---------- */
+        .lojas {
+            padding: 3rem 0;
+            border-top: 1px solid var(--borda);
+        }
+
+        .lojas .lead {
+            margin: .5rem 0 1.5rem;
+            color: var(--cinza);
+            max-width: 40em;
+        }
+
+        .estados {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 2rem;
+        }
+
+        .estados li {
+            padding: .75rem 0;
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .estados b {
+            display: block;
+        }
+
+        .estados span {
+            color: var(--cinza);
+            font-size: .9375rem;
+        }
+
+        /* ---------- Rodapé institucional ---------- */
+        .rodape {
+            background: var(--parede);
+            border-top: 1px solid var(--borda);
+            padding: 2.5rem 0 2rem;
+            font-size: .9375rem;
+        }
+
+        .rodape .colunas {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .rodape h3 {
+            font-size: 1rem;
+            margin-bottom: .75rem;
+        }
+
+        .rodape ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: .5rem;
+        }
+
+        .rodape a {
+            text-decoration: none;
+        }
+
+        .rodape a:hover {
+            text-decoration: underline;
+        }
+
+        .rodape p {
+            margin: 0 0 .5rem;
+            color: var(--cinza);
+        }
+
+        .rodape .legal {
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--borda);
+        }
+
+        /* ---------- Modal de cupom: <dialog> nativo ---------- */
+        dialog.cupom {
+            border: 1px solid var(--borda);
+            padding: 0;
+            width: min(26rem, calc(100% - 2rem));
+            background: var(--papel);
+            color: var(--tinta);
+        }
+
+        dialog.cupom::backdrop {
+            background: rgba(38, 38, 38, .6);
+        }
+
+        .cupom .conteudo {
+            padding: 2rem 1.5rem 1.5rem;
+            position: relative;
+        }
+
+        .cupom .fechar {
+            position: absolute;
+            top: .5rem;
+            right: .5rem;
+            border: 0;
+            background: transparent;
+            font: inherit;
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            color: var(--cinza);
+            padding: .25rem .5rem;
+        }
+
+        .cupom .fechar:hover {
+            color: var(--tinta);
+        }
+
+        .cupom .selo {
+            margin: 0 0 .5rem;
+            font-weight: 700;
+            color: var(--vermelho);
+        }
+
+        .cupom h2 {
+            font-size: 1.75rem;
+            margin-bottom: .5rem;
+        }
+
+        .cupom .lead {
+            margin: 0 0 1.5rem;
+            color: var(--cinza);
+        }
+
+        .cupom form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .cupom label {
+            display: grid;
+            gap: .3rem;
+            font-weight: 700;
+            font-size: .9375rem;
+        }
+
+        .cupom input {
+            font: inherit;
+            padding: .7rem .8rem;
+            border: 1px solid var(--borda);
+            background: var(--parede);
+            color: var(--tinta);
+        }
+
+        .cupom input:focus {
+            border-color: var(--vermelho);
+            outline: none;
+        }
+
+        .cupom .botao {
+            width: 100%;
+        }
+
+        .cupom .sem {
+            background: transparent;
+            border: 0;
+            color: var(--cinza);
+            font: inherit;
+            cursor: pointer;
+            padding: .25rem;
+        }
+
+        .cupom .sem:hover {
+            color: var(--tinta);
+            text-decoration: underline;
+        }
+
+        .cupom .sucesso {
+            margin: 0;
+            padding: 1rem;
+            background: var(--amarelo);
+            font-weight: 700;
+        }
+
+        .cupom .nota {
+            margin: 1rem 0 0;
+            font-size: .8125rem;
+            color: var(--cinza);
+        }
+
+        .oculto {
+            display: none !important;
+        }
+
+        @media (min-width: 48rem) {
+            .container {
+                padding: 0 2rem;
             }
 
-            .hide-scrollbar::-webkit-scrollbar {
-                display: none;
+            .conta {
+                display: flex;
             }
 
-            .hide-scrollbar {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
+            .hero .container {
+                grid-template-columns: 1fr 1fr;
             }
 
-            @keyframes floatEffect {
-
-                0%,
-                100% {
-                    transform: translateY(0px);
-                }
-
-                50% {
-                    transform: translateY(-8px);
-                }
+            .departamentos ul {
+                grid-template-columns: repeat(4, 1fr);
             }
 
-            .animate-float {
-                animation: floatEffect 4s ease-in-out infinite;
+            .produtos {
+                grid-template-columns: 1fr 1fr;
             }
 
-            .transition-smooth {
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            .destaque .container {
+                grid-template-columns: 1fr 1fr;
             }
-        </style>
-    </head>
 
-    <body class="bg-slate-50 text-slate-800 antialiased selection:bg-red-600 selection:text-white">
+            .destaque.alt .imagem {
+                order: -1;
+            }
 
-        <!-- MODAL DE CAPTAÇÃO DE LEADS (POP-UP DE BOAS-VINDAS) -->
-        <div id="lead-modal"
-            class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-sm px-4">
-            <div
-                class="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl relative border border-slate-100 transform transition-all">
-                <button onclick="closeModal()"
-                    class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 font-bold text-xl">&times;</button>
-                <div class="text-center mb-6">
-                    <span
-                        class="bg-red-100 text-red-600 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Oferta
-                        de Boas-Vindas</span>
-                    <h3 class="text-2xl font-black text-slate-900 mt-3">Quer ganhar R$ 100,00 de desconto?</h3>
-                    <p class="text-xs text-slate-500 mt-1">Cadastre-se para receber seu cupom e economizar na sua primeira
-                        compra online.</p>
-                </div>
-                <form onsubmit="handleLead(event)" class="space-y-4">
-                    <input type="text" placeholder="Nome Completo" required
-                        class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-red-600">
-                    <input type="email" placeholder="Seu melhor e-mail" required
-                        class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-red-600">
-                    <input type="tel" placeholder="WhatsApp (DDD + Número)" required
-                        class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-red-600">
-                    <button type="submit"
-                        class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-red-600/30 transition-smooth">
-                        Quero meu cupom
-                    </button>
-                    <button type="button" onclick="closeModal()"
-                        class="w-full text-slate-400 hover:text-slate-600 text-xs font-semibold pt-2">
-                        Continuar sem desconto
-                    </button>
-                </form>
-            </div>
-        </div>
+            .estados {
+                grid-template-columns: repeat(3, 1fr);
+            }
 
-        <!-- TOPO PROMOCIONAL -->
-        <div class="bg-red-600 text-white text-xs font-bold py-2 px-4 text-center tracking-wide uppercase">
-            🔥 Metais com Frete Grátis para Sul e Sudeste • Parcele em até 10x sem juros
-        </div>
+            .rodape .colunas {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
 
-        <!-- HEADER INSTITUCIONAL -->
-        <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
-            <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-                <div class="flex items-center gap-8">
-                    <span class="bg-red-600 text-white font-black text-xl px-3 py-1.5 rounded-lg tracking-wider">abc</span>
-                    <div class="hidden md:flex items-center bg-slate-100 rounded-xl px-4 py-2 w-96 border border-slate-200">
-                        <input type="text" placeholder="Digite sua busca..."
-                            class="bg-transparent text-sm w-full focus:outline-none text-slate-700">
-                    </div>
-                </div>
-                <div class="flex items-center gap-6 text-xs font-semibold text-slate-600">
-                    <a href="#" class="hover:text-red-600 hidden sm:block">Nossas Lojas</a>
-                    <a href="#" class="hover:text-red-600">Entre ou Cadastre-se</a>
-                    <a href="#"
-                        class="bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-smooth">Carrinho
-                        (0)</a>
-                </div>
-            </div>
-            <nav class="bg-slate-50 border-t border-slate-100 overflow-x-auto hide-scrollbar">
-                <div class="max-w-7xl mx-auto px-4 flex gap-8 py-2.5 text-xs font-bold text-slate-700 whitespace-nowrap">
-                    <a href="#" class="hover:text-red-600 text-red-600">Ver tudo</a>
-                    <a href="#" class="hover:text-red-600">Pisos | Revestimentos</a>
-                    <a href="#" class="hover:text-red-600">Louças</a>
-                    <a href="#" class="hover:text-red-600">Metais</a>
-                    <a href="#" class="hover:text-red-600">Banho Quente</a>
-                    <a href="#" class="hover:text-red-600">Tintas</a>
-                    <a href="#" class="hover:text-red-600">Cupons</a>
-                    <a href="#" class="text-amber-600 hover:text-amber-700 font-extrabold">Saldão de Ofertas 🔥</a>
-                </div>
+        @media (min-width: 64rem) {
+            .produtos {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .estados {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <p class="aviso">Metais com frete grátis para Sul e Sudeste. Parcele em até 10x sem juros.</p>
+
+    <header class="cabecalho">
+        <div class="container linha">
+            <a class="marca" href="https://www.abcdaconstrucao.com.br" target="_blank" rel="noopener noreferrer">abc</a>
+            <label class="busca" aria-label="Buscar produtos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m20 20-3.5-3.5" />
+                </svg>
+                <input type="search" placeholder="Digite sua busca*" aria-label="Buscar">
+            </label>
+            <nav class="conta" aria-label="Conta">
+                <a href="https://www.abcdaconstrucao.com.br/diretorio-de-lojas" target="_blank"
+                    rel="noopener noreferrer">Nossas lojas</a>
+                <a href="https://checkout.abcdaconstrucao.com.br/Login/Authenticate" target="_blank"
+                    rel="noopener noreferrer">Entre ou cadastre-se</a>
+                <a class="botao botao-contorno" href="#" aria-disabled="true">Carrinho (0)*</a>
             </nav>
-        </header>
+        </div>
+        <nav class="menu" aria-label="Categorias">
+            <ul>
+                <li><a class="ativo" href="https://www.abcdaconstrucao.com.br" target="_blank"
+                        rel="noopener noreferrer">Ver tudo</a></li>
+                <li><a href="https://www.abcdaconstrucao.com.br/pisos-e-revestimentos" target="_blank"
+                        rel="noopener noreferrer">Pisos | Revestimentos</a></li>
+                <li><a href="https://www.abcdaconstrucao.com.br/loucas/inox/sintetico" target="_blank"
+                        rel="noopener noreferrer">Louças</a></li>
+                <li><a href="https://www.abcdaconstrucao.com.br/metais-sanitarios" target="_blank"
+                        rel="noopener noreferrer">Metais</a></li>
+                <li><a href="https://www.abcdaconstrucao.com.br/banho-e-aquecimento-agua" target="_blank"
+                        rel="noopener noreferrer">Banho quente</a></li>
+                <li><a href="https://www.abcdaconstrucao.com.br/tintas" target="_blank"
+                        rel="noopener noreferrer">Tintas</a></li>
+                <li><a href="https://www.abcdaconstrucao.com.br/cupom-abc-da-construcao" target="_blank"
+                        rel="noopener noreferrer">Cupons</a></li>
+                <li><a href="https://www.abcdaconstrucao.com.br/saldao-abc" target="_blank"
+                        rel="noopener noreferrer">Saldão de Ofertas 🔥</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <!-- HERO SECTION ANIVERSÁRIO 69 ANOS -->
-        <section class="relative bg-slate-900 text-white py-20 overflow-hidden">
-            <div
-                class="absolute inset-0 opacity-10 bg-[radial-gradient(#ef4444_1px,transparent_1px)] [background-size:20px_20px]">
-            </div>
-            <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <main>
+        <section class="hero">
+            <div class="container">
                 <div>
-                    <span
-                        class="bg-amber-400 text-slate-950 font-black text-xs uppercase px-3 py-1.5 rounded-md tracking-widest inline-block mb-4">
-                        Especial Aniversário
-                    </span>
-                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight mb-4">
-                        ANIVERSÁRIO <span class="text-amber-400">69 ANOS</span>
-                    </h1>
-                    <p class="text-xl font-bold text-slate-300 mb-4 tracking-wide uppercase">Inspirando cada escolha</p>
-                    <p class="text-slate-400 text-sm md:text-base mb-8 leading-relaxed">
-                        Preparamos as melhores ofertas do ano para você. Condições imperdíveis em revestimentos, louças e
-                        metais das grandes marcas do mercado.
-                    </p>
-                    <a href="#vitrine"
-                        class="bg-red-600 hover:bg-red-700 text-white font-extrabold px-8 py-4 rounded-xl shadow-xl shadow-red-600/30 transition-smooth inline-block">
-                        Acessar Ofertas &rarr;
-                    </a>
+                    <p class="selo">Especial de aniversário</p>
+                    <h1>69 anos inspirando cada escolha</h1>
+                    <p class="lead">Preparamos as melhores ofertas do ano para você: condições imperdíveis em
+                        revestimentos, louças e metais das grandes marcas do mercado.</p>
+                    <a class="botao" href="#vitrine">Acessar ofertas</a>
+                    <p class="condicoes">69 anos de tradição · até 70% de desconto · frete grátis Sul e Sudeste em
+                        selecionados</p>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div
-                        class="bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center hover:border-red-500 transition-smooth">
-                        <p class="text-3xl font-black text-amber-400 mb-1">69</p>
-                        <p class="text-xs text-slate-400 uppercase font-semibold">Anos de Tradição</p>
-                    </div>
-                    <div
-                        class="bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center hover:border-red-500 transition-smooth">
-                        <p class="text-3xl font-black text-red-500 mb-1">até 70%</p>
-                        <p class="text-xs text-slate-400 uppercase font-semibold">De Desconto</p>
-                    </div>
-                    <div class="col-span-2 bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center">
-                        <p class="text-sm font-bold text-slate-200">Frete Grátis Sul e Sudeste em Selecionados</p>
-                    </div>
+                <div class="banner">
+                    <img src="assets/abc-da-construcao-emailmkt.jpg"
+                        alt="Encarte da campanha de aniversário de 69 anos da ABC da Construção" loading="eager">
                 </div>
             </div>
         </section>
 
-        <!-- COMPRE POR DEPARTAMENTO -->
-        <section class="py-12 bg-white border-b border-slate-200">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-xl font-bold text-slate-900 mb-6 text-center">Compre por Departamento</h2>
-                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
-                    <div
-                        class="p-4 rounded-xl bg-slate-50 hover:bg-red-50 border border-slate-100 transition-smooth cursor-pointer group hover:-translate-y-1">
-                        <div
-                            class="w-12 h-12 mx-auto mb-2 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">
-                            🎨</div>
-                        <p class="text-xs font-bold text-slate-700 group-hover:text-red-600">Tintas</p>
-                    </div>
-                    <div
-                        class="p-4 rounded-xl bg-slate-50 hover:bg-red-50 border border-slate-100 transition-smooth cursor-pointer group hover:-translate-y-1">
-                        <div
-                            class="w-12 h-12 mx-auto mb-2 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">
-                            🧱</div>
-                        <p class="text-xs font-bold text-slate-700 group-hover:text-red-600">Porcelanato</p>
-                    </div>
-                    <div
-                        class="p-4 rounded-xl bg-slate-50 hover:bg-red-50 border border-slate-100 transition-smooth cursor-pointer group hover:-translate-y-1">
-                        <div
-                            class="w-12 h-12 mx-auto mb-2 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">
-                            🚽</div>
-                        <p class="text-xs font-bold text-slate-700 group-hover:text-red-600">Vaso Sanitário</p>
-                    </div>
-                    <div
-                        class="p-4 rounded-xl bg-slate-50 hover:bg-red-50 border border-slate-100 transition-smooth cursor-pointer group hover:-translate-y-1">
-                        <div
-                            class="w-12 h-12 mx-auto mb-2 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">
-                            🪵</div>
-                        <p class="text-xs font-bold text-slate-700 group-hover:text-red-600">Porcelanato Madeira</p>
-                    </div>
-                    <div
-                        class="p-4 rounded-xl bg-slate-50 hover:bg-red-50 border border-slate-100 transition-smooth cursor-pointer group hover:-translate-y-1">
-                        <div
-                            class="w-12 h-12 mx-auto mb-2 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">
-                            🛁</div>
-                        <p class="text-xs font-bold text-slate-700 group-hover:text-red-600">Louças</p>
-                    </div>
-                    <div
-                        class="p-4 rounded-xl bg-slate-50 hover:bg-red-50 border border-slate-100 transition-smooth cursor-pointer group hover:-translate-y-1">
-                        <div
-                            class="w-12 h-12 mx-auto mb-2 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">
-                            📐</div>
-                        <p class="text-xs font-bold text-slate-700 group-hover:text-red-600">Grandes Formatos</p>
-                    </div>
-                    <div
-                        class="p-4 rounded-xl bg-slate-50 hover:bg-red-50 border border-slate-100 transition-smooth cursor-pointer group hover:-translate-y-1">
-                        <div
-                            class="w-12 h-12 mx-auto mb-2 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">
-                            💡</div>
-                        <p class="text-xs font-bold text-slate-700 group-hover:text-red-600">Iluminação</p>
-                    </div>
-                    <div
-                        class="p-4 rounded-xl bg-slate-50 hover:bg-red-50 border border-slate-100 transition-smooth cursor-pointer group hover:-translate-y-1">
-                        <div
-                            class="w-12 h-12 mx-auto mb-2 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">
-                            ✨</div>
-                        <p class="text-xs font-bold text-slate-700 group-hover:text-red-600">Acabado</p>
-                    </div>
-                </div>
+        <section class="departamentos">
+            <div class="container">
+                <h2>Compre por departamento</h2>
+                <ul>
+                    <li><a href="https://www.abcdaconstrucao.com.br/tintas" target="_blank"
+                            rel="noopener noreferrer">Tintas</a></li>
+                    <li><a href="https://www.abcdaconstrucao.com.br/pisos-e-revestimentos" target="_blank"
+                            rel="noopener noreferrer">Porcelanato</a></li>
+                    <li><a href="https://www.abcdaconstrucao.com.br/loucas/inox/sintetico" target="_blank"
+                            rel="noopener noreferrer">Vaso sanitário</a></li>
+                    <li><a href="https://www.abcdaconstrucao.com.br/pisos-e-revestimentos/porcelanato-madeira"
+                            target="_blank" rel="noopener noreferrer">Porcelanato madeira</a></li>
+                    <li><a href="https://www.abcdaconstrucao.com.br/loucas/inox/sintetico" target="_blank"
+                            rel="noopener noreferrer">Louças</a></li>
+                    <li><a href="https://www.abcdaconstrucao.com.br/pisos-e-revestimentos" target="_blank"
+                            rel="noopener noreferrer">Grandes formatos</a></li>
+                    <li><a href="https://www.abcdaconstrucao.com.br/iluminacao" target="_blank"
+                            rel="noopener noreferrer">Iluminação</a></li>
+                    <li><a href="https://www.abcdaconstrucao.com.br/metais-sanitarios/acabamentos" target="_blank"
+                            rel="noopener noreferrer">Acabamentos</a></li>
+                </ul>
             </div>
         </section>
 
-        <!-- VITRINE DE PRODUTOS / DESTAQUES -->
-        <section id="vitrine" class="py-20 max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-end mb-12">
+        <section class="vitrine" id="vitrine">
+            <div class="container">
+                <header>
+                    <div>
+                        <h2>Destaques da campanha</h2>
+                        <p>Preços de aniversário em metais Celite e Deca.*</p>
+                    </div>
+                    <a href="https://www.abcdaconstrucao.com.br/saldao-abc" target="_blank"
+                        rel="noopener noreferrer">Ver todas as ofertas</a>
+                </header>
+
+                <!-- Fotos ilustrativas de banco de imagens: em produção, substituir pela foto real de cada produto. -->
+                <ul class="produtos">
+                    <li class="produto">
+                        <div class="foto">
+                            <div class="tags"><span class="tag tag-frete">Frete grátis</span><span
+                                    class="tag tag-desconto">37% off</span></div>
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+                                alt="Imagem ilustrativa de torneira monocomando" loading="lazy">
+                        </div>
+                        <div class="info">
+                            <p class="fabricante">Celite</p>
+                            <h3>Monocomando para cozinha de mesa, bica U extraível</h3>
+                            <div class="valores">
+                                <p class="de">R$ 995,90</p>
+                                <p class="por">R$ 625,90 <small>cada</small></p>
+                                <a class="botao botao-escuro" href="https://www.abcdaconstrucao.com.br" target="_blank"
+                                    rel="noopener noreferrer">Comprar agora</a>
+                                <p class="ilustrativa">Imagem ilustrativa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="produto">
+                        <div class="foto">
+                            <div class="tags"><span class="tag tag-frete">Frete grátis</span><span
+                                    class="tag tag-desconto">48% off</span></div>
+                            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80"
+                                alt="Imagem ilustrativa de torneira de cozinha" loading="lazy">
+                        </div>
+                        <div class="info">
+                            <p class="fabricante">Celite</p>
+                            <h3>Monocomando para cozinha de mesa, bica móvel Gourmet</h3>
+                            <div class="valores">
+                                <p class="de">R$ 1.318,90</p>
+                                <p class="por">R$ 686,90 <small>cada</small></p>
+                                <a class="botao botao-escuro" href="https://www.abcdaconstrucao.com.br" target="_blank"
+                                    rel="noopener noreferrer">Comprar agora</a>
+                                <p class="ilustrativa">Imagem ilustrativa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="produto">
+                        <div class="foto">
+                            <div class="tags"><span class="tag tag-frete">Frete grátis</span><span
+                                    class="tag tag-desconto">35% off</span></div>
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+                                alt="Imagem ilustrativa de chuveiro" loading="lazy">
+                        </div>
+                        <div class="info">
+                            <p class="fabricante">Deca</p>
+                            <h3>Kit chuveiro de parede com ducha manual Acqua Plus</h3>
+                            <div class="valores">
+                                <p class="de">R$ 1.377,41</p>
+                                <p class="por">R$ 899,90 <small>cada</small></p>
+                                <a class="botao botao-escuro" href="https://www.abcdaconstrucao.com.br" target="_blank"
+                                    rel="noopener noreferrer">Comprar agora</a>
+                                <p class="ilustrativa">Imagem ilustrativa*</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="produto">
+                        <div class="foto">
+                            <div class="tags"><span></span><span class="tag tag-desconto">28% off</span></div>
+                            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80"
+                                alt="Imagem ilustrativa de acabamento de registro" loading="lazy">
+                        </div>
+                        <div class="info">
+                            <p class="fabricante">Deca</p>
+                            <h3>Acabamento para registro de gaveta e pressão Level</h3>
+                            <div class="valores">
+                                <p class="de">R$ 188,96</p>
+                                <p class="por">R$ 136,90 <small>cada</small></p>
+                                <a class="botao botao-escuro" href="https://www.abcdaconstrucao.com.br" target="_blank"
+                                    rel="noopener noreferrer">Comprar agora</a>
+                                <p class="ilustrativa">Imagem ilustrativa*</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="destaque">
+            <div class="container">
                 <div>
-                    <span class="text-red-600 font-bold uppercase tracking-widest text-xs">Exclusivo Aniversário</span>
-                    <h2 class="text-3xl font-black text-slate-900 mt-1">Destaques da Campanha</h2>
+                    <span class="desconto">60% off</span>
+                    <h2>Cuba Apoio Infinity 110x42 cm</h2>
+                    <p class="descricao">Equipada com sistema de válvula oculta, a Cuba Infinity entrega estética
+                        minimalista e sofisticação para projetos de banheiros de alto padrão.</p>
+                    <p class="ficha"><b>Fabricante:</b> Roca &nbsp;·&nbsp; <b>SKU:</b> 69965</p>
+                    <a class="botao botao-escuro" href="https://www.abcdaconstrucao.com.br" data-sku="69965"
+                        target="_blank" rel="noopener noreferrer">Ver oferta</a>
                 </div>
-                <a href="#" class="text-sm font-bold text-red-600 hover:underline">Ver todas as ofertas &rarr;</a>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div
-                    class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-smooth">
-                    <div class="relative h-60 bg-slate-100 overflow-hidden">
-                        <span
-                            class="absolute top-3 right-3 z-10 bg-red-600 text-white font-black text-xs px-2.5 py-1 rounded-full shadow-md">-37%</span>
-                        <span
-                            class="absolute top-3 left-3 z-10 bg-amber-400 text-slate-950 font-bold text-[10px] px-2 py-0.5 rounded">Frete
-                            Grátis</span>
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
-                            alt="Produto" class="w-full h-full object-cover group-hover:scale-105 transition-smooth">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <span class="text-xs font-bold text-slate-400 uppercase mb-1">Celite</span>
-                        <h3 class="text-sm font-bold text-slate-900 mb-2 line-clamp-2">Monocomando Para Cozinha De Mesa Bica
-                            U Extravível</h3>
-                        <div class="mt-auto">
-                            <p class="text-xs text-slate-400 line-through">R$ 995,90</p>
-                            <p class="text-xl font-black text-red-600">R$ 625,90 <span
-                                    class="text-xs font-normal text-slate-500">cada</span></p>
-                            <a href="#"
-                                class="mt-4 block text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3 rounded-xl transition-smooth text-sm">
-                                Comprar Agora
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-smooth">
-                    <div class="relative h-60 bg-slate-100 overflow-hidden">
-                        <span
-                            class="absolute top-3 right-3 z-10 bg-red-600 text-white font-black text-xs px-2.5 py-1 rounded-full shadow-md">-48%</span>
-                        <span
-                            class="absolute top-3 left-3 z-10 bg-amber-400 text-slate-950 font-bold text-[10px] px-2 py-0.5 rounded">Frete
-                            Grátis</span>
-                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80"
-                            alt="Produto" class="w-full h-full object-cover group-hover:scale-105 transition-smooth">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <span class="text-xs font-bold text-slate-400 uppercase mb-1">Celite</span>
-                        <h3 class="text-sm font-bold text-slate-900 mb-2 line-clamp-2">Monocomando Para Cozinha De Mesa Bica
-                            Móvel Gourmet</h3>
-                        <div class="mt-auto">
-                            <p class="text-xs text-slate-400 line-through">R$ 1.318,90</p>
-                            <p class="text-xl font-black text-red-600">R$ 686,90 <span
-                                    class="text-xs font-normal text-slate-500">cada</span></p>
-                            <a href="#"
-                                class="mt-4 block text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3 rounded-xl transition-smooth text-sm">
-                                Comprar Agora
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-smooth">
-                    <div class="relative h-60 bg-slate-100 overflow-hidden">
-                        <span
-                            class="absolute top-3 right-3 z-10 bg-red-600 text-white font-black text-xs px-2.5 py-1 rounded-full shadow-md">-35%</span>
-                        <span
-                            class="absolute top-3 left-3 z-10 bg-amber-400 text-slate-950 font-bold text-[10px] px-2 py-0.5 rounded">Frete
-                            Grátis</span>
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
-                            alt="Produto" class="w-full h-full object-cover group-hover:scale-105 transition-smooth">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <span class="text-xs font-bold text-slate-400 uppercase mb-1">Deca</span>
-                        <h3 class="text-sm font-bold text-slate-900 mb-2 line-clamp-2">Kit Chuveiro de Parede com Duche
-                            Manuel Acqua Plus</h3>
-                        <div class="mt-auto">
-                            <p class="text-xs text-slate-400 line-through">R$ 1.377,41</p>
-                            <p class="text-xl font-black text-red-600">R$ 899,90 <span
-                                    class="text-xs font-normal text-slate-500">cada</span></p>
-                            <a href="#"
-                                class="mt-4 block text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3 rounded-xl transition-smooth text-sm">
-                                Comprar Agora
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-smooth">
-                    <div class="relative h-60 bg-slate-100 overflow-hidden">
-                        <span
-                            class="absolute top-3 right-3 z-10 bg-red-600 text-white font-black text-xs px-2.5 py-1 rounded-full shadow-md">-28%</span>
-                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80"
-                            alt="Produto" class="w-full h-full object-cover group-hover:scale-105 transition-smooth">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <span class="text-xs font-bold text-slate-400 uppercase mb-1">Deca</span>
-                        <h3 class="text-sm font-bold text-slate-900 mb-2 line-clamp-2">Acabamento Para Registro de Gaveta e
-                            Pressão Level</h3>
-                        <div class="mt-auto">
-                            <p class="text-xs text-slate-400 line-through">R$ 188,96</p>
-                            <p class="text-xl font-black text-red-600">R$ 136,90 <span
-                                    class="text-xs font-normal text-slate-500">cada</span></p>
-                            <a href="#"
-                                class="mt-4 block text-center bg-slate-900 hover:bg-red-600 text-white font-bold py-3 rounded-xl transition-smooth text-sm">
-                                Comprar Agora
-                            </a>
-                        </div>
-                    </div>
+                <div class="imagem">
+                    <img src="assets/abc-da-construcao-emailmkt-2.jpg" alt="Cuba de apoio Infinity 110x42 cm, Roca"
+                        loading="lazy">
                 </div>
             </div>
         </section>
 
-        <!-- [SEÇÃO ISOLADA DE PRODUTO 1] Cuba Apoio Infinity 110x42cm -->
-        <section class="py-20 bg-white border-b border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <section class="destaque alt">
+            <div class="container">
                 <div>
-                    <span class="bg-red-100 text-red-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Destaque de
-                        Design</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mt-3 mb-4">Cuba Apoio Infinity 110x42cm (Roca)
-                    </h2>
-                    <p class="text-slate-600 text-base mb-6 leading-relaxed">
-                        Equipada com sistema de válvula oculta, a Cuba Infinity entrega estética minimalista e sofisticação
-                        incomparável para projetos de banheiros de alto padrão.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                            <p class="text-xs text-slate-400 uppercase font-bold">Fabricante</p>
-                            <p class="font-bold text-slate-900">Roca</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                            <p class="text-xs text-slate-400 uppercase font-bold">SKU Oficial</p>
-                            <p class="font-bold text-slate-900">SKU 69965</p>
-                        </div>
-                    </div>
-                    <a href="#"
-                        class="bg-slate-900 hover:bg-red-600 text-white font-bold px-8 py-3.5 rounded-xl transition-smooth inline-block">
-                        Ver Oferta com 60% OFF
-                    </a>
+                    <span class="desconto">31% off</span>
+                    <h2>Ducha Eletrônica Ducali Black 220V</h2>
+                    <p class="descricao">Com tecnologia de temperatura gradual e design moderno na cor preta, a Ducha
+                        Ducali proporciona banho imersivo e controle preciso de aquecimento.</p>
+                    <p class="ficha"><b>Fabricante:</b> Zagonel &nbsp;·&nbsp; <b>SKU:</b> 86531</p>
+                    <a class="botao botao-escuro" href="https://www.abcdaconstrucao.com.br" data-sku="86531"
+                        target="_blank" rel="noopener noreferrer">Ver oferta</a>
                 </div>
-                <div class="relative bg-slate-100 rounded-2xl overflow-hidden shadow-xl h-96 group">
-                    <img src="assets/abc-da-construcao-emailmkt-2.jpg" alt="Cuba Apoio Infinity"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-smooth">
+                <div class="imagem">
+                    <img src="assets/abc-da-construcao-emailmkt-5.jpg" alt="Ducha eletrônica Ducali Black 220V, Zagonel"
+                        loading="lazy">
                 </div>
             </div>
         </section>
 
-        <!-- [SEÇÃO ISOLADA DE PRODUTO 2] Ducha Eletrônica Ducali Black 220V -->
-        <section class="py-20 bg-slate-50 border-b border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1 relative bg-slate-100 rounded-2xl overflow-hidden shadow-xl h-96 group">
-                    <img src="assets/abc-da-construcao-emailmkt-5.jpg" alt="Ducha Eletrônica Ducali"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-smooth">
-                </div>
-                <div class="order-1 lg:order-2">
-                    <span class="bg-red-100 text-red-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Banho
-                        Confortável</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mt-3 mb-4">Ducha Eletrônica Ducali Black 220V
-                        (Zagonel)</h2>
-                    <p class="text-slate-600 text-base mb-6 leading-relaxed">
-                        Com tecnologia de temperatura gradual e design moderno na cor preta, a Ducha Ducali proporciona uma
-                        experiência de banho imersiva e controle preciso de aquecimento.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="bg-white p-4 rounded-xl border border-slate-200">
-                            <p class="text-xs text-slate-400 uppercase font-bold">Fabricante</p>
-                            <p class="font-bold text-slate-900">Zagonel</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl border border-slate-200">
-                            <p class="text-xs text-slate-400 uppercase font-bold">SKU Oficial</p>
-                            <p class="font-bold text-slate-900">SKU 86531</p>
-                        </div>
-                    </div>
-                    <a href="#"
-                        class="bg-slate-900 hover:bg-red-600 text-white font-bold px-8 py-3.5 rounded-xl transition-smooth inline-block">
-                        Ver Oferta com 31% OFF
-                    </a>
-                </div>
+        <section class="lojas">
+            <div class="container">
+                <h2>Nossas lojas pelo Brasil</h2>
+                <p class="lead">Mais de 450 guide shops em 11 estados. A história da ABC começou em Juiz de Fora, Minas
+                    Gerais.</p>
+                <ul class="estados">
+                    <li><b>Minas Gerais</b><span>Juiz de Fora, Belo Horizonte e região</span></li>
+                    <li><b>São Paulo</b><span>Capital e interior</span></li>
+                    <li><b>Rio de Janeiro</b><span>Região metropolitana</span></li>
+                    <li><b>Espírito Santo</b><span>Vitória e Vila Velha</span></li>
+                    <li><b>Bahia</b><span>Salvador e litoral</span></li>
+                    <li><b>Goiás</b><span>Goiânia e entorno</span></li>
+                    <li><b>Paraná</b><span>Curitiba e região</span></li>
+                    <li><b>Santa Catarina</b><span>Litoral e vale</span></li>
+                    <li><b>Distrito Federal</b><span>Brasília</span></li>
+                    <li><b>Mato Grosso</b><span>Cuiabá</span></li>
+                    <li><b>Mato Grosso do Sul</b><span>Campo Grande</span></li>
+                </ul>
             </div>
         </section>
+    </main>
 
-        <!-- SEÇÃO DE LOJAS FÍSICAS PELO BRASIL -->
-        <section class="py-16 bg-slate-900 text-white">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <span class="text-red-500 font-bold uppercase tracking-widest text-xs">Presença Nacional</span>
-                <h2 class="text-3xl font-black mt-1 mb-12">Nossas Lojas pelo Brasil</h2>
-
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-                    <div
-                        class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-red-500 transition-smooth">
-                        <p class="font-bold text-lg mb-1">Minas Gerais</p>
-                        <p class="text-xs text-slate-400">Juiz de Fora, BH e Região</p>
-                    </div>
-                    <div
-                        class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-red-500 transition-smooth">
-                        <p class="font-bold text-lg mb-1">São Paulo</p>
-                        <p class="text-xs text-slate-400">Capital e Interior</p>
-                    </div>
-                    <div
-                        class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-red-500 transition-smooth">
-                        <p class="font-bold text-lg mb-1">Rio de Janeiro</p>
-                        <p class="text-xs text-slate-400">Metropolitana e Lagos</p>
-                    </div>
-                    <div
-                        class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-red-500 transition-smooth">
-                        <p class="font-bold text-lg mb-1">Espírito Santo</p>
-                        <p class="text-xs text-slate-400">Vitória e Vila Velha</p>
-                    </div>
-                    <div
-                        class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-red-500 transition-smooth">
-                        <p class="font-bold text-lg mb-1">Bahia</p>
-                        <p class="text-xs text-slate-400">Salvador e Litoral</p>
-                    </div>
-                    <div
-                        class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-red-500 transition-smooth">
-                        <p class="font-bold text-lg mb-1">Goiás</p>
-                        <p class="text-xs text-slate-400">Goiânia e Entorno</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- RODAPÉ INSTITUCIONAL -->
-        <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900 text-xs">
-            <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+    <footer class="rodape">
+        <div class="container">
+            <div class="colunas">
                 <div>
-                    <span
-                        class="bg-red-600 text-white font-black text-lg px-3 py-1 rounded tracking-wider inline-block mb-4">abc</span>
-                    <p class="text-slate-400 leading-relaxed">Em cada detalhe, a gente pensa em você. Líder em acabamentos e
-                        soluções para construção e reforma.</p>
+                    <a class="marca" href="https://www.abcdaconstrucao.com.br" target="_blank"
+                        rel="noopener noreferrer">abc</a>
+                    <p style="margin-top:1rem;">A maior especialista em acabamentos do Brasil. Em cada detalhe, a gente
+                        pensa em você.</p>
                 </div>
                 <div>
-                    <p class="font-bold text-white mb-3 uppercase tracking-wider text-sm">Departamentos</p>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-white">Pisos e Revestimentos</a></li>
-                        <li><a href="#" class="hover:text-white">Louças Sanitárias</a></li>
-                        <li><a href="#" class="hover:text-white">Metais para Cozinha e Banheiro</a></li>
-                        <li><a href="#" class="hover:text-white">Saldão de Ofertas</a></li>
+                    <h3>Departamentos</h3>
+                    <ul>
+                        <li><a href="https://www.abcdaconstrucao.com.br/pisos-e-revestimentos" target="_blank"
+                                rel="noopener noreferrer">Pisos e revestimentos</a></li>
+                        <li><a href="https://www.abcdaconstrucao.com.br/loucas/inox/sintetico" target="_blank"
+                                rel="noopener noreferrer">Louças sanitárias</a></li>
+                        <li><a href="https://www.abcdaconstrucao.com.br/metais-sanitarios" target="_blank"
+                                rel="noopener noreferrer">Metais para cozinha e banheiro</a></li>
+                        <li><a href="https://www.abcdaconstrucao.com.br/saldao-abc" target="_blank"
+                                rel="noopener noreferrer">Saldão de ofertas</a></li>
                     </ul>
                 </div>
                 <div>
-                    <p class="font-bold text-white mb-3 uppercase tracking-wider text-sm">Atendimento</p>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-white">Central de Atendimento</a></li>
-                        <li><a href="#" class="hover:text-white">Encontre uma Loja</a></li>
-                        <li><a href="#" class="hover:text-white">Política de Privacidade</a></li>
+                    <h3>Atendimento</h3>
+                    <ul>
+                        <li><a href="tel:08002000216">0800 200 0216</a></li>
+                        <li><a href="https://wa.me/5531991055920" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                        </li>
+                        <li><a href="https://www.abcdaconstrucao.com.br/diretorio-de-lojas" target="_blank"
+                                rel="noopener noreferrer">Encontre uma loja</a></li>
                     </ul>
                 </div>
                 <div>
-                    <p class="font-bold text-white mb-3 uppercase tracking-wider text-sm">Corporativo</p>
-                    <p class="text-slate-400 mb-2">Abc Atacado Brasileiro Da Construcao Sa</p>
-                    <p class="text-slate-500">Belo Horizonte, MG • Brasil</p>
+                    <h3>Corporativo</h3>
+                    <p>ABC Atacado Brasileiro da Construção S.A.</p>
+                    <p>Belo Horizonte, MG · Brasil</p>
                 </div>
             </div>
-            <div class="max-w-7xl mx-auto px-4 pt-8 border-t border-slate-900 text-center text-slate-500">
-                <p>Ofertas válidas até 31/07/26. Imagens ilustrativas. Todos os direitos reservados.</p>
+            <div class="legal">
+                <p>Ofertas válidas até <time datetime="2026-07-31">31/07/2026</time>. Imagens ilustrativas. Todos os
+                    direitos reservados.</p>
+                <p>* Página de demonstração para fins didáticos. Busca, carrinho, cupom, preços e links de produto são
+                    ilustrativos — nenhum dado é coletado ou enviado.</p>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <script>
-            function closeModal() {
-                document.getElementById('lead-modal').style.display = 'none';
-            }
+    <!-- Modal de cupom: <dialog> nativo. Abre após alguns segundos; Esc fecha; o envio só exibe uma confirmação. -->
+    <dialog class="cupom" id="cupom" aria-labelledby="cupom-titulo">
+        <div class="conteudo">
+            <button class="fechar" type="button" id="cupom-fechar" aria-label="Fechar">&times;</button>
+            <p class="selo">Oferta de boas-vindas</p>
+            <h2 id="cupom-titulo">Quer ganhar R$ 100 de desconto?</h2>
+            <p class="lead">Cadastre-se para receber seu cupom e economizar na primeira compra online.</p>
 
-            function handleLead(event) {
-                event.preventDefault();
-                alert('Parabéns! Seu cupom de R$ 100,00 foi gerado e enviado para o seu e-mail.');
-                closeModal();
-            }
-        </script>
-    </body>
+            <form id="cupom-form" novalidate>
+                <label>Nome completo <input type="text" name="nome" required autocomplete="name"></label>
+                <label>Seu melhor e-mail <input type="email" name="email" required autocomplete="email"></label>
+                <label>WhatsApp (DDD + número) <input type="tel" name="whatsapp" required autocomplete="tel"
+                        inputmode="tel"></label>
+                <button class="botao" type="submit">Quero meu cupom</button>
+                <button class="sem" type="button" id="cupom-sem">Continuar sem desconto</button>
+            </form>
 
-    </html>
+            <p class="sucesso oculto" id="cupom-sucesso" role="status">Cupom gerado! Confira seu e-mail.*</p>
+            <p class="nota">* Demonstração de interface para fins didáticos — nenhum dado é enviado ou armazenado.</p>
+        </div>
+    </dialog>
+
+    <script>
+        // ---------- Modal de cupom ----------
+        // Aparece após 4 segundos, sem bloquear o primeiro contato com a página.
+        const cupom = document.getElementById('cupom');
+        const form = document.getElementById('cupom-form');
+        const sucesso = document.getElementById('cupom-sucesso');
+        let cupomDispensado = false;
+
+        function fecharCupom() {
+            cupomDispensado = true;
+            if (cupom.open) cupom.close();
+        }
+
+        setTimeout(() => {
+            if (!cupomDispensado && typeof cupom.showModal === 'function') cupom.showModal();
+        }, 4000);
+
+        document.getElementById('cupom-fechar').addEventListener('click', fecharCupom);
+        document.getElementById('cupom-sem').addEventListener('click', fecharCupom);
+        cupom.addEventListener('cancel', () => { cupomDispensado = true; }); // tecla Esc
+
+        // Validação nativa do HTML5 + feedback inline, sem alert() e sem envio real.
+        form.addEventListener('submit', (evento) => {
+            evento.preventDefault();
+            if (!form.reportValidity()) return;
+            form.classList.add('oculto');
+            sucesso.classList.remove('oculto');
+            setTimeout(fecharCupom, 2500);
+        });
+
+        // Busca e carrinho são ilustrativos: só impedem navegação vazia.
+        document.querySelector('.busca').addEventListener('submit', (e) => e.preventDefault());
+        document.querySelector('.conta .botao-contorno').addEventListener('click', (e) => e.preventDefault());
+    </script>
+
+</body>
+
+</html>
